@@ -20,6 +20,10 @@ jobs:
         with:
           flutter-version: '3.22.0'
           channel: 'stable'
+      
+      # یہ 2 لائنیں Android v1 embedding کو خود ٹھیک کر دیں گی
+      - run: rm -rf android/
+      - run: flutter create --platforms=android .
           
       - run: flutter pub get
       
