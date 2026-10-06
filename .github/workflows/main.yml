@@ -1,4 +1,4 @@
-name: Deploy to 【entity-GitHub¦canonical_name=GitHub】 Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -18,14 +18,10 @@ jobs:
         with:
           flutter-version: '3.22.0'
           channel: 'stable'
-
-      # پرانا web فولڈر ڈیلیٹ کر کے نیا بنائیں
       - run: rm -rf web/
       - run: flutter create --platforms=web .
-          
       - run: flutter pub get
       - run: flutter build web --base-href /salatwatch_full_flutter_project/
-      
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./build/web
@@ -39,4 +35,3 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
-        
